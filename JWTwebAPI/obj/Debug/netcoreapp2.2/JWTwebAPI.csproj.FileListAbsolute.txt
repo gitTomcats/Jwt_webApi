@@ -12,3 +12,17 @@ C:\Users\ismail.ermis\source\repos\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\J
 C:\Users\ismail.ermis\source\repos\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.RazorTargetAssemblyInfo.cache
 C:\Users\ismail.ermis\source\repos\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.dll
 C:\Users\ismail.ermis\source\repos\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.pdb
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\bin\Debug\netcoreapp2.2\JWTwebAPI.deps.json
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\bin\Debug\netcoreapp2.2\JWTwebAPI.runtimeconfig.json
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\bin\Debug\netcoreapp2.2\JWTwebAPI.runtimeconfig.dev.json
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\bin\Debug\netcoreapp2.2\JWTwebAPI.dll
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\bin\Debug\netcoreapp2.2\JWTwebAPI.pdb
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.csprojAssemblyReference.cache
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.csproj.CoreCompileInputs.cache
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.RazorAssemblyInfo.cache
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.RazorAssemblyInfo.cs
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.AssemblyInfoInputs.cache
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.AssemblyInfo.cs
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.RazorTargetAssemblyInfo.cache
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.dll
+C:\Projects\localProjects\JWTwebAPI\JWTwebAPI\obj\Debug\netcoreapp2.2\JWTwebAPI.pdb

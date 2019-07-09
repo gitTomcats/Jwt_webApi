@@ -34,14 +34,7 @@ namespace JWTwebAPI.Controllers
                 // Check in DB username and password exist
                 if (usernameAndPass[0] == "Admin" && usernameAndPass[1] == "pass")
                 {
-                  var  adminRole = new IdentityRole("Admin");
-                    var claimsdata = new[]
-                    {
-                        new Claim(
-                            ClaimTypes.Name, "username",
-                            ClaimTypes.Role,"Admin"
-                        )
-                    };
+                   
                     var tokenHandler = new JwtSecurityTokenHandler();
                     var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
 
