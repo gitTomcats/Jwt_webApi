@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -32,6 +34,18 @@ namespace JWTwebAPI.Controllers
                 var usernameAndPassenc = Encoding.UTF8.GetString(Convert.FromBase64String(credValue));//admin:pass
                 var usernameAndPass = usernameAndPassenc.Split(":");
                 // Check in DB username and password exist
+                string[] roles = {"Admin", "Editor"};
+                IdentityOptions _options = new IdentityOptions();
+                 
+                var claims = new List<Claim>
+                {
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(ClaimTypes.Sid, "1453"),
+                    new Claim(ClaimTypes.Name, usernameAndPass[0]),
+                    new Claim(ClaimTypes.NameIdentifier, usernameAndPass[0])
+
+                };
+                claims.AddRange(roles.Select(role => new Claim(ClaimsIdentity.DefaultRoleClaimType, role)));
                 if (usernameAndPass[0] == "Admin" && usernameAndPass[1] == "pass")
                 {
                    
@@ -40,11 +54,7 @@ namespace JWTwebAPI.Controllers
 
                     var tokenDescriptor = new SecurityTokenDescriptor
                     {
-                        Subject = new ClaimsIdentity(new Claim[] 
-                        {
-                            new Claim(ClaimTypes.Name, "username"),
-                            new Claim(ClaimTypes.Role, "Admin")
-                        }),
+                        Subject = new ClaimsIdentity(claims),
                         Expires = DateTime.UtcNow.AddDays(7),
                         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                     };

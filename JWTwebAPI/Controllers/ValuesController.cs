@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using JWTwebAPI.Validation;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JWTwebAPI.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Editor")]
     [ValidateModel]
     public class ValuesController : ControllerBase
     {
@@ -18,6 +22,16 @@ namespace JWTwebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            var identity = User.Identity as ClaimsIdentity;
+
+            var userId = identity.FindFirst(ClaimTypes.Sid).Value;
+            var rolesAll = identity.FindAll(ClaimTypes.Role);
+            foreach (var claim in rolesAll)
+            {
+                var test = claim.Value;
+            }
+            var userIdm = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            
             return new string[] { "value1", "value2" };
         }
 
