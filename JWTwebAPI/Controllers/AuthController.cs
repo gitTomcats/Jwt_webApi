@@ -24,15 +24,16 @@ namespace JWTwebAPI.Controllers
         }
 
         [HttpPost("token")]
-        public IActionResult Token()
+        public IActionResult Token(string username,string userpass)
         {
             
             var header = Request.Headers["Authorization"];
-            if (header.ToString().StartsWith("Basic"))
-            {
-                var credValue = header.ToString().Substring("Basic ".Length).Trim();
-                var usernameAndPassenc = Encoding.UTF8.GetString(Convert.FromBase64String(credValue));//admin:pass
-                var usernameAndPass = usernameAndPassenc.Split(":");
+           
+                //var credValue = header.ToString().Substring("Basic ".Length).Trim();
+                //var usernameAndPassenc = Encoding.UTF8.GetString(Convert.FromBase64String(credValue));//admin:pass
+
+                //var usernameAndPass = usernameAndPassenc.Split(":");
+                
                 // Check in DB username and password exist
                 string[] roles = {"Admin", "Editor"};
                 IdentityOptions _options = new IdentityOptions();
@@ -41,12 +42,12 @@ namespace JWTwebAPI.Controllers
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                     new Claim(ClaimTypes.Sid, "1453"),
-                    new Claim(ClaimTypes.Name, usernameAndPass[0]),
-                    new Claim(ClaimTypes.NameIdentifier, usernameAndPass[0])
+                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.NameIdentifier, username)
 
                 };
                 claims.AddRange(roles.Select(role => new Claim(ClaimsIdentity.DefaultRoleClaimType, role)));
-                if (usernameAndPass[0] == "Admin" && usernameAndPass[1] == "pass")
+                if (username== "Admin" && userpass == "pass")
                 {
                    
                     var tokenHandler = new JwtSecurityTokenHandler();
@@ -62,7 +63,7 @@ namespace JWTwebAPI.Controllers
                    
                     return Ok(new { Token = tokenHandler.WriteToken(token) });
                 }
-            }
+            
 
             return BadRequest("wrong request");
 
